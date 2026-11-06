@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/chatdb
+    username: chat
+    password: change_me
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+app:
+  cors-origin: http://localhost:5173
+  jwt:
+    # >= 32 ky tu. Doi bang bien moi truong JWT_SECRET khi deploy.
+    secret: ${JWT_SECRET:dev-only-secret-change-me-please-32chars-min}
+    expiration-hours: 24
